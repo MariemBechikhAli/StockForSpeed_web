@@ -1,0 +1,145 @@
+{% extends 'frontend/base.html.twig' %}
+
+{% block content %}
+    <style>
+
+        p {
+            font-weight: 300;
+
+            line-height: 1.6;
+            font-family: Helvetica;
+            text-align: justify;
+            margin: 0;
+            font-size: 14px;
+            color: white;
+            background-color: #0c7cd5;
+            border: 1px solid black;
+            text-align: justify;
+            padding: 15px;
+            margin: 10px;
+        }
+    </style>
+    <div class="breadcrumb parallax" style=" background: linear-gradient(35deg, #1EAE98, #D8B5FF);">
+        <h1 style="color: #0b0b0b;
+            text-align:center;font-family:'Baskerville Old Face';font-weight:900;font-size:4em;color:#fff;text-shadow:0em 0.05em 0 rgba(0,0,0,0.25)}
+    " class="control-label" >Detail  réclamation
+
+        </h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </div>
+    <!-- Page Content -->
+    <div class="container">
+
+    <br><br>
+    <a href="{{  path('read_reclamation')}}"><i class="fa fa-arrow-circle-o-left "style="font-size: 70px; color: black"></i></a>
+    <hr>
+    <br><br>
+    <div class="row">
+
+    <div class="col-lg-12">
+
+
+
+        <!-- Preview Image -->
+        <img class="img-fluid rounded" src="{{ asset('uploads/reclamation_image/' ~ image) }}" style="width: 100%;height: 500px;">
+
+
+            <h4>{{ date|date }}</h4>
+            </div>
+        <div class="row">
+
+            <div class="col-lg-12">
+
+        <!-- Date/Time -->
+        <h1 style="font-size:25px;text-align:center;background-color: #FFD270;">{{ objet }}</h1>
+                <p class="lead">{{ descripion }}</p>
+
+        </div>
+        </div>
+        <!-- Date/Time -->
+
+
+
+        <!-- Post Content -->
+
+
+        <hr>
+
+{#        <!-- Comments Form -->#}
+{#        <div class="card my-4">#}
+{#            <h5 class="card-header">Leave a Comment:</h5>#}
+{#            <div class="card-body">#}
+{#                <form action="{{ path('add_comment') }}" method="post" id="comment">#}
+{#                    <div class="form-group">#}
+
+{#                        <textarea class="form-control" rows="3" name="comment" placeholder="Comment here"></textarea>#}
+
+{#                    </div>#}
+{#                    <button type="submit" class="btn btn-primary">Submit</button>#}
+{#                </form>#}
+{#            </div>#}
+{#        </div>#}
+
+{#        <!-- Single Comment -->#}
+{#        {% for comment in posts.comments %}#}
+{#        <div class="media mb-4">#}
+{#            <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">#}
+{#            <div class="media-body">#}
+{#                <h5 class="mt-0">{{ comment.getUser().getUsername() }}</h5>#}
+{#                <p>{{ comment.getContent() }}</p>#}
+{#                {% if is_granted('IS_AUTHENTICATED_FULLY') %}#}
+{#                    {% if(comment.user.id== app.user.id) %}#}
+
+
+{#                        <!-- Button trigger modal -->#}
+{#                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">#}
+{#                            Delete#}
+{#                        </button>#}
+
+{#                        <!-- Modal -->#}
+{#                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">#}
+{#                            <div class="modal-dialog" role="document">#}
+{#                                <div class="modal-content">#}
+{#                                    <div class="modal-header">#}
+{#                                        <h5 class="modal-title" id="exampleModalLabel">Alert </h5>#}
+{#                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">#}
+{#                                            <span aria-hidden="true">&times;</span>#}
+{#                                        </button>#}
+{#                                    </div>#}
+{#                                    <div class="modal-body">#}
+{#                                        Do you really want to delete your comment ?#}
+{#                                    </div>#}
+{#                                    <div class="modal-footer">#}
+{#                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>#}
+{#                                        <a href="{{ path('delete_comment',{'id': comment.id}) }}"><button type="button" class="btn btn-primary">Delete Comment</button></a>#}
+{#                                    </div>#}
+{#                                </div>#}
+{#                            </div>#}
+{#                        </div>#}
+{#                    {% else %}#}
+
+
+{#                    {% endif %}#}
+{#                {% elseif is_granted('IS_AUTHENTICATED_ANONYMOUSLY') %}#}
+{#                    <br>#}
+
+{#                {% endif %}#}
+
+{#            </div>#}
+{#            {% endfor %}#}
+{#            <!-- Comment with nested comments -->#}
+
+
+
+        <br><br><br><br><br>
+
+
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+{% endblock %}

@@ -1,0 +1,114 @@
+{%  extends 'frontend/base.html.twig' %}
+
+{% block content %}
+    <style>
+        .background-slider {
+            background-image: url({{ asset('assets/5ec5e-slider-1.jpg') }});
+            background-size: cover;
+            color: #eee;
+        }
+
+    </style>
+    <div class="">
+        <div id="page-title" class="background-slider">
+            <div class="text-center">
+                <div class="container z-index-2 position-relative">
+                    <div class="padding-tb-100px">
+                        <div class="text-center margin-bottom-30px">
+                            <img src="{{ asset('assets/email.jpg') }}" alt="" width=1700px height=500px>
+                            <h4 >Super Fast and Easy</h4>
+                        </div>
+
+
+                        <script>
+                            var app = document.getElementById('writer');
+                            var typewriter = new Typewriter(app, {
+                                loop: true
+                            });
+                            typewriter.typeString('Choisissez votre vehicule')
+                                .pauseFor(2500)
+                                .deleteAll()
+                                .start();
+
+                        </script>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <br>
+    <div class="container">
+        {%  for message in app.flashes('info') %}
+            <div class="alert alert-success">
+                {{ message }}
+            </div>
+        {% endfor %}
+        <div class="row">
+            <div class="col-md-offset-1 col-md-10">
+                <h3 class="contactus-title">Vous avez des questions Nous avons des réponsess</h3>
+                <p class="text-center contact-desc">
+                    faire un livre type spécimen. Il a survécu non seulement cinq siècles, mais aussi le saut dans la composition électronique, demeurant essentiellement inchangé.
+                    Il a été popularisé dans les années 1960 avec la sortie de feuilles Letraset contenant des passages de Lorem Ipsum.
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="complaint">
+                    <h2 class="tf">Tel</h2>
+                    <div class="call-info">+216 41405314</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="email">
+                    <h2 class="tf">Mail</h2>
+                    <div class="email-info">s4sb.tobeornottobe@gmail.com</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="time">
+                    <h2 class="tf">Horraire</h2>
+                    <div class="time-info">Lundi – Samedi: 9:00 – 18:00</div>
+                </div>
+            </div>
+        </div>
+        {{ form_start(f) }}
+        <div class="main-form">
+            <h3 class="contactus-title">Envoyer un email</h3>
+            <br>
+            <hr>
+            <div class="row">
+                    <div class="col-sm-6">
+                       {# <input type="text" required name="name" placeholder="Name">#}
+                        {{ form_widget(f.from,{'attr':{'type':'text','class':'form-control','placeholder':'From'}}) }}
+                    </div>
+                {# <div class="col-sm-6 ">
+                     <input type="email" required name="email" placeholder="Email">
+                 </div>
+                 <div class="col-sm-6 ">
+                     <input type="text" required name="phone" placeholder="Phone Number">
+                 </div>#}
+                    <div class="col-sm-6 ">
+                       {# <input type="text" required name="subject" placeholder="Subject">#}
+                        {{ form_widget(f.subject,{'attr':{'type':'text','class':'form-control','placeholder':'Objet'}}) }}
+                    </div>
+                    <div class="col-xs-12 ">
+                        {#  <textarea required name="message" placeholder="Message" rows="3" cols="30"></textarea>#}
+                        {{ form_widget(f.message,{'attr':{'type':'text','row':'5','class':'form-control','placeholder':'Message'}}) }}
+                    </div>
+                    <div class="col-xs-12  text-center">
+                        <div class="commun-btn">
+                           {# <button type="submit" name="submit" class="btn">Submit</button>#}
+
+                            {{ form_widget(f.send,{'attr':{'class':'btn','placeholder':'Message'}}) }}
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        {{ form_end((f)) }}
+
+    </div>
+{% endblock %}

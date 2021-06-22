@@ -1,0 +1,169 @@
+{%  extends 'backend/base.html.twig' %}
+
+{% block content %}
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div class="container-fluid">
+ <div class="row">
+     <div class="col-lg-12">
+    <div class="row">
+        <div class="col-lg-3">
+              <div class="widget">
+                          <div class="widget-body">
+                                     <div class="row">
+                                            <div class="col-md-12 col-sm-12 col-xs-12">
+                                                <a href="#" data-toggle="modal" data-target="#add-category" class="btn btn-lg btn-success btn-block waves-effect waves-light">
+                                                    <i class="fa fa-plus"></i> Details sur les <br>voitures louées
+                                                </a>
+
+
+                                                <!-- checkbox -->
+
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> <!-- end col-->
+
+                            <div class="col-lg-9">
+                                <div class="card-box">
+
+                                    <div id="calendar">
+                                        <table class="table">
+                                            <thead>
+                                            <tr class="bg-danger text-white">
+                                                <th>#</th>
+                                                <th>Voiture louée</th>
+                                                <th>Locataire</th>
+                                                <th>Date Debut location</th>
+                                                <th>Date Fin location</th>
+                                                <th>Etat</th>
+
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for i in c  %}
+                                            <tr >
+                                                <th scope="row">{{ i.id }}</th>
+                                                <td><a href="{{ path('vehicules_Admin_affiche1vehicule',{'matricule':i.matricule}) }}"> {{ i.matricule }}</a> </td>
+                                              {#  <td>{{ i.idUser }}</td>#}
+                                                <td>
+                                                    <i class="fa fa-th-list"  style="font-size: 20px; color: #00aced;" data-toggle="modal" data-target="#myModal{{ i.id }}"></i>
+
+                                                    <div class="modal fade" id="myModal{{ i.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                        <div class="modal-dialog">
+                                                            <br><br><br><br>
+                                                            <div class="modal-content">
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title" id="myModalLabel"> Plus de details sur le locataire:</h4>
+
+                                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                                </div>
+                                                                <div class="modal-body">
+                                                                    <div class="row">
+
+                                                                        <div class="col-lg-12">
+                                                                       <div style="font-family: Cambria">USERNAME:   {{ i.idUser }}</div>
+                                                                            <div style="font-family: Cambria">E-MAIL:   {{ i.idUser.email }}</div>
+                                                                        </div>
+                                                                        <div class="col-lg-6">
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-footer">
+                                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+
+                                                                </div>
+
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td>{{ i.dateDebut| date('yy-m-d') }}</td>
+                                                <td>{{ i.dateFin | date ('yy-m-d')}}</td>
+                                                <td>{{ i.etat }}</td>
+                                            </tr>
+
+                                            {% endfor%}
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+
+                                </div>
+                            </div> <!-- end col -->
+
+                        </div>  <!-- end row -->
+
+                        <!-- BEGIN MODAL -->
+                        <div class="modal fade none-border" id="event-modal">
+                            {% for i in c %}
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title mt-0"><strong>Add New Event</strong></h4>
+                                        {{ i.matricule }}
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body"></div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-success save-event waves-effect waves-light">Create event</button>
+                                        <button type="button" class="btn btn-danger delete-event waves-effect waves-light" data-dismiss="modal">Delete</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {% endfor %}
+                        </div>
+
+                        <!-- Modal Add Category -->
+                        <div class="modal fade none-border" id="add-category">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h4 class="modal-title mt-0"><strong>Add a category </strong></h4>
+                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form role="form">
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <label class="control-label">Category Name</label>
+                                                    <input class="form-control form-white" placeholder="Enter name" type="text" name="category-name"/>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <label class="control-label">Choose Category Color</label>
+                                                    <select class="form-control form-white" data-placeholder="Choose a color..." name="category-color">
+                                                        <option value="success">Success</option>
+                                                        <option value="danger">Danger</option>
+                                                        <option value="info">Info</option>
+                                                        <option value="pink">Pink</option>
+                                                        <option value="primary">Primary</option>
+                                                        <option value="warning">Warning</option>
+                                                        <option value="inverse">Inverse</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-light waves-effect" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger waves-effect waves-light save-category" data-dismiss="modal">Save</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END MODAL -->
+                    </div>
+                    <!-- end col-12 -->
+                </div> <!-- end row -->
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+

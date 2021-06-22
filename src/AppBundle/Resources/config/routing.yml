@@ -1,0 +1,6 @@
+homepage:
+    path:     /Accueil
+    defaults: { _controller: AppBundle:Default:Accueil }
+redirection:
+    path:     /home
+    defaults: { _controller: AppBundle:Security:redirect }

@@ -1,0 +1,122 @@
+
+{%  extends 'backend/base.html.twig' %}
+
+ {%  block content %}
+
+
+
+<div class="content-page">
+    <!-- Start content -->
+    <div class="content">
+        <div  class="container-fluid"  >
+
+
+                <li class="list-inline-item">
+                    <h4 class="page-title">Statistique des feedbacks et réclamations</h4>
+                </li>
+
+
+
+
+
+                <div class="row"  style="  display: flex;
+  justify-content: center;
+  flex-direction: row;">
+                    <div class="col-xl-3 col-md-6 " >
+                        <div class="card-box widget-user">
+                            <div class="text-center">
+                                <h2 class="text-pink" data-plugin="counterup">{{ nbRec }}</h2>
+                                <h5>Total de Reclamation</h5>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-3 col-md-6">
+                        <div class="card-box widget-user">
+                            <div class="text-center">
+                                <h2 class="text-warning" data-plugin="counterup">{{nbFeed}}</h2>
+                                <h5>Total de Feedback</h5>
+                            </div>
+                        </div>
+                    </div>
+
+                    </center>
+                </div sty>
+            <div class="col-xl-12 col-md-12">
+                <div class="card-box" >
+                    <div class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                            <i class="mdi mdi-dots-vertical"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                        </div>
+                    </div>
+
+                    <h4 class="header-title mt-0 m-b-30">Nombre des réclamation aprés Ventes</h4>
+
+                    <div class="widget-box-2">
+                        <div class="widget-detail-2">
+                            <span class="badge badge-pink badge-pill pull-left m-t-20">{{nbrRecParRapportFeed |number_format }}% <i class="mdi mdi-trending-up"></i> </span>
+                            <h2 class="mb-0"> {{ nbrRecParRapportFeed }} </h2>
+                            <p class="text-muted m-b-25">Revenue Réclamation par rapport au feedback</p>
+                        </div>
+                        <div class="progress progress-bar-pink-alt progress-sm mb-0">
+                            <div class="progress-bar progress-bar-pink" role="progressbar" aria-valuenow="{{ nbrRecParRapportFeed }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrRecParRapportFeed }}%;">
+                                <span class="sr-only">{{nbrRecParRapportFeed  }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-12 col-md-12">
+                <div class="card-box">
+                    <div class="dropdown pull-right">
+                        <a href="#" class="dropdown-toggle arrow-none card-drop" data-toggle="dropdown" aria-expanded="false">
+                            <i class="mdi mdi-dots-vertical"></i>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item">Action</a>
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item">Another action</a>
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item">Something else</a>
+                            <!-- item-->
+                            <a href="javascript:void(0);" class="dropdown-item">Separated link</a>
+                        </div>
+                    </div>
+
+                    <h4 class="header-title mt-0 m-b-30">Nombre feedback livreur</h4>
+
+                    <div class="widget-box-2">
+                        <div class="widget-detail-2">
+                            <span class="badge badge-primary badge-pill pull-left m-t-20">{{ nbrFeedParRapportRec |number_format   }}% <i class="mdi mdi-trending-up"></i> </span>
+                            <h2 class="mb-0"> {{nbrFeedParRapportRec }} </h2>
+                            <p class="text-muted m-b-25">Revenue feedbacks par rapport au réclamation </p>
+                        </div>
+                        <div class="progress progress-bar-primary-alt progress-sm mb-0">
+                            <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="{{ nbrFeedParRapportRec   }}" aria-valuemin="0" aria-valuemax="100" style="width: {{ nbrFeedParRapportRec   }}%;">
+                                <span class="sr-only">{{ nbrFeedParRapportRec   }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+</div>
+ {% endblock %}
+
+
+
+

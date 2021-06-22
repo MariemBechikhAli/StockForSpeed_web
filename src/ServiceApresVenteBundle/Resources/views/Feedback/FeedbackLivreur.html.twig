@@ -1,0 +1,100 @@
+
+
+{% extends 'frontend/base.html.twig' %}
+{% block content %}
+
+<style>
+
+
+    body {
+        background-color: gainsboro;
+        padding: 0 5px;
+    }
+    .iconbb {
+        float: left;
+        margin-left: 2px;
+        margin-right: 2px;
+        margin-top: 10px;
+        margin-bottom: 20px;
+        padding-left: 3%;
+        width: 30%;
+    }
+
+
+    .textbb {
+        margin: 5px;
+        padding-left: 34%;
+        width: auto;
+    }
+
+
+
+</style>
+
+    <div class="breadcrumb parallax" style=" background: linear-gradient(35deg, #1EAE98, #D8B5FF);">
+        <h1 style="color: #0b0b0b;
+            text-align:center;font-family:'Baskerville Old Face';font-weight:900;font-size:4em;color:#fff;text-shadow:0em 0.05em 0 rgba(0,0,0,0.25)}
+    " class="control-label" >Listes des Livreurs
+
+        </h1>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+        </ul>
+    </div>
+    <div class="row">
+<section  style="padding:30px;background-color: #fff;">
+
+
+        <div class="clearfix">
+            <div class="iconbb">
+                <img class="breadcrumb_shap" src="{{ asset('assets/images/feedbacks/service_details.png') }}" alt="">
+            </div>
+
+            <div class="textbb">
+                <h2>Livreurs :</h2>
+                <p style="text-align: left; font-size: 13px; padding-right: 35px;">
+                    Le livreur / la livreuse assure le transport des marchandises d’un endroit à l’autre, à l’aide d’un véhicule léger, soit deux roues, soit quatre roues au poids inférieur à 3,5t. A la fois chauffeur et manutentionnaire, le livreur prend en charge toutes les étapes de l’acheminement de plis, de colis ou de marchandises.
+                    Il organise les tournées en fonction des priorités indiquées par son responsable.</p>
+            </div>
+        </div>
+</section ></div>
+    <br><br><br>
+    <div class="row">
+        <section  style="padding:30px;background-color: #fff;">
+
+    <div class="sec_title text-center mb_70">
+        <h1 class="">Nous avons prets à votre feedback</h1>
+    </div>
+    <br>
+    <div class="row">
+                       {% for liv in livreur %}
+
+        <div class="col-lg-3 col-sm-push-2">
+            <div class="ex_team_item">
+                <img src="{{ asset('uploads/feedback_image/' ~liv.photo)}}" class="rounded-circle " alt="profile-image">
+                <div class="team_content">
+
+                    <h3 style="text-align: center;">                        {{ liv.email}}
+                    </h3>
+                    <br>
+                 <button   style=" background: linear-gradient(35deg, #1EAE98, #D8B5FF);padding: 10px; margin-bottom:25px;border-radius: 10px;margin-right: 25px;width: 100%;">
+                     <a style="font-size: 25px;" href="{{ path('add_feedback') }}">donnez moi note
+                    </a></button>
+                </div>
+            </div>
+        </div>
+                       {% endfor %}
+
+        </div>
+    </section>
+
+    </div>
+
+
+
+
+
+
+
+{% endblock %}

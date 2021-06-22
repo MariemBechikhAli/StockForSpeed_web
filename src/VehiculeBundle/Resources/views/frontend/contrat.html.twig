@@ -1,0 +1,35 @@
+
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contrat location </title>
+    <style>
+        span{ margin-left: 400px; }
+    </style>
+</head>
+<br>
+<body lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+
+<h1>Contrat de location Vehicule de la part de la société S4S</h1> <br>
+Bonjour<h2> M.{{ u.username }}  vous avez passer une demande de livraison voici votre contrat </h2>
+CONTRAT DE LOCATION DE VOITURE Entre les soussignés : M./Mme-/Société : M.{{ u.username }}
+: ayant son siège social/ titulaire de la carte d’identité/passeport n°/id: {{ u.getId()}}<br>
+Ci-après désignée « Le locataire », d'une part ET/ L’Agence <strong> Stock For Speed </strong>
+ayant son siège XXXX BP 9040 Tel :<Strong> 41405314 </Strong>.
+Ci-après désignée « Le propriétaire », d'autre part IL A ETE CONVENU ET ARRETE CE QUI SUIT.<br>
+La véhicule loué est de type <strong>{{v.type}}</strong> de la marque <strong>{{ v.marque }}</strong>
+de  <strong> {{ v.nbPlace }}</strong>  places immatriculé<strong class="btn-danger">{{ v.matricule }}</strong>
+
+Il est conclu pour une durée de <strong> {{ dr }}
+</strong>
+
+allant du <strong>{{vu.dateDebut |date ('d/m/y')}} </strong> au <strong>{{vu.dateFin | date ('d/m/y')}}</strong>;
+d'un tarif de <strong> {{ v.prix }}dt/jrs</strong> qui vaux <strong> {{tr}} Dt à payer dans nos bureaux </strong>
+
+Cette période peut être prolongée à la demande du locataire en fonction de la nécessité de service Art 2.</br>
+<strong class="red">PS: Veuillez SVP imprimé ce mail et le présenté à nos bureaux.</strong></br>
+<br>
+<strong>Signature locataire</strong> <span> </span> <strong>Caché et signature de l'agence</strong><br>
+
+</body>
+</html>
